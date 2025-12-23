@@ -22,7 +22,7 @@ class ImportMongoDbUsers extends Command
      *
      * @var string
      */
-    protected $description = 'Import Mongo db Json int Mysql';
+    protected $description = 'Import MongoDB Json into Mysql';
 
     /**
      * Execute the console command.
@@ -59,17 +59,17 @@ class ImportMongoDbUsers extends Command
                 'bio' => $user['bio'] ?? null,
                 'jobTitle' => $user['jobTitle'] ?? null,
                 // 'skills' => $user['skills'] ?? null,
-                'skills' => isset($u['skills']) && is_array($u['skills'])
-                    ? json_encode($u['skills'])
-                    : ($u['skills'] ?? null),
+                'skills' => isset($user['skills']) && is_array($user['skills'])
+                    ? json_encode($user['skills'])
+                    : ($user['skills'] ?? null),
                 'facebookUrl' => $user['facebookUrl'] ?? null,
                 'githubUrl' => $user['githubUrl'] ?? null,
                 'linkedInUrl' => $user['linkedInUrl'] ?? null,
                 'twitterUrl' => $user['twitterUrl'] ?? null,
                 'youtubeUrl' => $user['youtubeUrl'] ?? null,
                 'mongodb_id' => $user['mongodb_id'] ?? null,
-                'created_at'   => isset($u['createdAt']['$date']) ? Carbon::parse($u['createdAt']['$date']) : now(),
-                'updated_at'   => isset($u['updatedAt']['$date']) ? Carbon::parse($u['updatedAt']['$date']) : now(),
+                'created_at' => isset($u['createdAt']['$date']) ? Carbon::parse($u['createdAt']['$date']) : now(),
+                'updated_at' => isset($u['updatedAt']['$date']) ? Carbon::parse($u['updatedAt']['$date']) : now(),
 
             ]);
         }
