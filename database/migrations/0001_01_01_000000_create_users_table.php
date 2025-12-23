@@ -22,7 +22,7 @@ return new class extends Migration
             $table->enum('roll', ['admin', 'teacher', 'student'])->default('student');
             $table->string('status')->default('active');
             $table->tinyInteger('isVerified')->default(0);
-            $table->text('education')->nullable();
+            $table->tex('education')->nullable();
             $table->text('experience')->nullable();
             $table->text('bio')->nullable();
             $table->string('jobTitle')->nullable();
