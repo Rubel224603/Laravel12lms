@@ -51,7 +51,7 @@ class ImportMongoDbUsers extends Command
                 'phone' => $user['phone'] ?? null,
                 'password' => $user['password'] ?? Hash::make('123456'),
                 'photo' => $user['photo'] ?? null,
-                'roll' => $user['roll'] ?? "student",
+                'role' => $user['role'] === 'admin' ? 'admin' : (($user['role'] === 'instructor') ? 'teacher' : 'student'),
                 'status' => $user['status'] ?? "active",
                 'isVerified' => $user['isVerified'] ?? false,
                 'education' => $user['education'] ?? null,
